@@ -1,0 +1,7 @@
+*.json
+*.yaml
+.eslintignore
+.gitignore
+.nvmrc
+node_modules
+*.md
