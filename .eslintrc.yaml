@@ -1,0 +1,9 @@
+env:
+  node: true
+extends:
+  - plugin:@typescript-eslint/recommended
+  - prettier
+  - lugin:prettier/recommended
+parser: '@typescript-eslint/parser'
+plugins:
+  - '@typescript-eslint'
