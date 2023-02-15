@@ -2,10 +2,11 @@
   "compilerOptions": {
     "target": "es6",
     "module": "es6",
-    "baseUrl": ".",
+    "baseUrl": "./",
     "lib": ["es6", "dom"],
     "allowJs": true,
-    "types": ["cypress", "node"],
+    "types": ["cypress", "node", "@shelex/cypress-allure-plugin"],
+    "noEmit": true,
     "moduleResolution": "node",
     "importHelpers": true
   },
