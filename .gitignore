@@ -2,3 +2,5 @@ cypress/screenshots
 cypress/downloads
 cypress/videos
 node_modules/
+allure-report
+allure-results

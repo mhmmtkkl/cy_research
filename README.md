@@ -2,7 +2,6 @@
 
 This is a Typescript project that leverages Cypress framework for core automated testing.
 
-
 ---
 
 🛠 Built with [TypeScript](https://www.typescriptlang.org/) and [Cypress](https://www.cypress.io/)
@@ -41,6 +40,7 @@ npm i
 ```bash
 npm run test
 ```
+
 > 🚩 **Note**
 >
 > This will run all the tests in the suite, to run tests on a single service use the `npm run only` script instead.

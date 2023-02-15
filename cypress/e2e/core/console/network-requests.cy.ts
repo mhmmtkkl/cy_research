@@ -10,7 +10,7 @@ context('network request', () => {
     }).as('ads');
     cy.visit(`${aspicyURL}${debug}`);
     cy.wait('@ads').then(({ response }) => {
-      expect(response.statusCode).to.be.oneOf([200, 304])
+      expect(response.statusCode).to.be.oneOf([200, 304]);
     });
   });
 
@@ -21,7 +21,7 @@ context('network request', () => {
     }).as('prebid');
     cy.visit(`${aspicyURL}${debug}`);
     cy.wait('@prebid').then(({ response }) => {
-      expect(response.statusCode).to.be.oneOf([200, 304])
+      expect(response.statusCode).to.be.oneOf([200, 304]);
     });
   });
 });
