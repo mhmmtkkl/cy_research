@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cypress open",
+    "test": "cypress run",
+    "prettier": "prettier --write .",
     "cy:run_spec": "npx cypress run --spec 'cypress/e2e/core'",
     "cy:run_browsers": "npm run cy:run_spec -- --browser firefox & npm run cy:run_spec -- --browser chrome & npm run cy:run_spec -- --browser electron --env allure=true",
     "allure:clear": "rm -r allure-results/ allure-report cypress/screenshots || true",
@@ -23,6 +24,7 @@
     "cypress-xpath": "^2.0.1",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "playwright-webkit": "^1.30.0",
     "typescript": "^4.9.5"
   }
 }
