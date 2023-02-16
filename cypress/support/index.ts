@@ -5,12 +5,15 @@
 /// <reference types="cypress" />
 export {};
 
-// declare global {
+declare global {
 namespace Cypress {
   interface Chainable {
     /**
      * Custom commands here
      */
   }
+  interface ResolvedConfigOptions {
+    hideXHRInCommandLog?: boolean;
+  }
 }
-// }
+}
