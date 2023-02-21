@@ -6,10 +6,9 @@ module.exports = defineConfig({
   experimentalWebKitSupport: true,
   e2e: {
     setupNodeEvents(on, config) {
-      // allureWriter(on, config);
-      // return config;
+      allureWriter(on, config);
+      return config;
     },
-    projectId: '82a1no',
     hideXHRInCommandLog: true,
   },
   blockHosts: ['**.kargo.com'],
