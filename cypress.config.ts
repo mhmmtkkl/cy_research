@@ -1,7 +1,8 @@
-import { defineConfig } from 'cypress';
-import allureWriter from '@shelex/cypress-allure-plugin/writer';
+const { defineConfig } = require('cypress');
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 
-export default defineConfig({
+
+module.exports = defineConfig({
   experimentalWebKitSupport: true,
   e2e: {
     setupNodeEvents(on, config) {
