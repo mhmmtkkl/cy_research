@@ -47,7 +47,9 @@ class Ads {
     return cy.get("div[class='jw-media jw-reset']>video");
   }
 
-  // input[placeholder*="Name"]
+  newsletterCloseBtn() {
+    return cy.get("button[class^='CloseButton__ButtonElement']>svg");
+  }
 }
 
 export default Ads;

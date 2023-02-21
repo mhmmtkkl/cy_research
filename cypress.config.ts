@@ -9,6 +9,7 @@ module.exports = defineConfig({
       allureWriter(on, config);
       return config;
     },
-    projectId: '82a1no',
+    hideXHRInCommandLog: true,
   },
-})
+  blockHosts: ['**.kargo.com'],
+});
