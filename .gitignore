@@ -1,6 +1,8 @@
 cypress/screenshots
 cypress/downloads
 cypress/videos
+cypress/.DS_Store
 node_modules/
 allure-report
 allure-results
+.DS_Store

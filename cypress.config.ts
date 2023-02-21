@@ -9,9 +9,7 @@ export default defineConfig({
       // return config;
     },
     projectId: '82a1no',
-    hideXHRInCommandLog: true
+    hideXHRInCommandLog: true,
   },
-  blockHosts : [
-    "**.kargo.com"
-  ]
+  blockHosts: ['**.kargo.com'],
 });
