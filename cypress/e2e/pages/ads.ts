@@ -2,16 +2,15 @@ class Ads {
   all_content_adds() {
     let totalCount;
 
+    const all_ads = cy.get("div[class*='adthrive-ad adthrive-content']").find('iframe').its('length').should('be.gte', 1)
 
-    const all_ads = cy.get("div[class*='adthrive-ad adthrive-content'] iframe")
-    cy.wrap(all_ads).should('be.gte', 1);
-    return all_ads;
+    return cy.get("div[class*='adthrive-ad adthrive-content']");
   }
 
   element_attribute(){ 
     const all_ads = cy.get("div[id='AdThrive_Content_1_desktop'] iframe")
   }
-  https://tpc.googlesyndication.com/safeframe/1-0-40/js/ext.js
+  // https://tpc.googlesyndication.com/safeframe/1-0-40/js/ext.js
 
   
   footer_element() {
@@ -55,6 +54,10 @@ class Ads {
 
   newsletterCloseBtn() {
     return cy.get("button[class^='CloseButton__ButtonElement']>svg");
+  }
+
+  pop_up_close_button() {
+    return cy.get("button[title='Close']");
   }
 }
 
