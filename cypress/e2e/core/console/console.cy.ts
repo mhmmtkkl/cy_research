@@ -21,8 +21,6 @@ context('Desktop console test cases', () => {
       .then((console) => {
         cy.stub(console, 'error').callsFake((...args) => {
           args.forEach((arg) => {
-            cy.log('arg12345');
-            cy.log(arg);
             expect(arg).to.not.contain('to not include error');
           });
         });
