@@ -1,5 +1,5 @@
 class Ads {
-  all_content_adds() {
+  allContentAdds() {
     let totalCount;
 
     const all_ads = cy.get("div[class*='adthrive-ad adthrive-content']").find('iframe').its('length').should('be.gte', 1)
@@ -7,48 +7,47 @@ class Ads {
     return cy.get("div[class*='adthrive-ad adthrive-content']");
   }
 
-  element_attribute(){ 
+  elementAttribute(){ 
     const all_ads = cy.get("div[id='AdThrive_Content_1_desktop'] iframe")
   }
   // https://tpc.googlesyndication.com/safeframe/1-0-40/js/ext.js
 
   
-  footer_element() {
+  footerElement() {
     return cy.get("div[id='AdThrive_Footer_1_desktop']");
   }
   
-  side_bar_element() {
+  sideBarElement() {
     return cy.get("//div[contains(@class,'adthrive-ad adthrive-sidebar')]");
   }
 
-  element_under_the_video() {
+  elementUnderTheVideo() {
     return cy.xpath(
       "(//div[contains(@id,'cls-video-container')]/following-sibling::p)[2]",
     );
-    // return cy.get("div[class='GoogleActiveViewClass GoogleActiveViewElement']")
   }
 
   video() {
     return cy.get("div[id='adthrive-contextual-container']");
   }
 
-  sticky_video() {
+  stickyVideo() {
     return cy.get("div[class='adthrive']");
   }
 
-  collapse_video_close_button() {
+  collapseVideoCloseButton() {
     return cy.get("div[id='adthrive-collapse-close']");
   }
 
-  video_next_button() {
+  videoNextButton() {
     return cy.get("div[id='next-video']");
   }
 
-  video_stay_button() {
+  videoStayButton() {
     return cy.get("div[id='stay-video']");
   }
 
-  video_change_src() {
+  videoChangeSrc() {
     return cy.get("div[class='jw-media jw-reset']>video");
   }
 
@@ -56,7 +55,7 @@ class Ads {
     return cy.get("button[class^='CloseButton__ButtonElement']>svg");
   }
 
-  pop_up_close_button() {
+  popUpCloseButton() {
     return cy.get("button[title='Close']");
   }
 }

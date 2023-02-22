@@ -1,5 +1,5 @@
 import Ads from '../../pages/ads';
-import iframes from '../../utilities/iframes';
+import iframes from '../../utilities/IFrames';
 
 
 context('Core testing ads display', () => {
@@ -12,7 +12,7 @@ context('Core testing ads display', () => {
   it('user verify all the content ads are displaying', function () {
     cy.visit('https://www.wellplated.com/carnitas/');
     const ad = new Ads();
-    const allads = ad.all_content_adds();
+    const allads = ad.allContentAdds();
     allads.should('be.visible');
 
   });
@@ -20,7 +20,7 @@ context('Core testing ads display', () => {
   it('user verify footer is displaying', function () {
     cy.visit('https://www.wellplated.com/carnitas/');
     const ad = new Ads();
-    const allads = ad.footer_element();
+    const allads = ad.footerElement();
     allads.should('be.visible').and('have.length', 1);
   });
 
@@ -30,13 +30,13 @@ context('Core testing ads display', () => {
     const ad = new Ads();
     cy.scrollTo('bottom');
     
-    ad.pop_up_close_button().click()
+    ad.popUpCloseButton().click();
     
 
-    cy.get('div[id="AdThrive_Footer_1_desktop"]').invoke('attr', 'data-google-query-id').then((attr1)=>{
+    ad.footerElement().invoke('attr', 'data-google-query-id').then((attr1)=>{
       
       cy.wait(30000)
-      cy.get('div[id="AdThrive_Footer_1_desktop"]').invoke('attr', 'data-google-query-id').then((attr2)=>{
+      ad.footerElement().invoke('attr', 'data-google-query-id').then((attr2)=>{
         
         expect(attr1).to.not.equal(attr2)
       })

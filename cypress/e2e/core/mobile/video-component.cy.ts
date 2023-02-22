@@ -11,9 +11,9 @@ context('Mobile resolution', () => {
       'https://damndelicious.net/2022/08/05/weeknight-lemon-chicken-breasts/',
     );
     const ad = new Ads();
-    const under_the_video = ad.element_under_the_video();
+    const under_the_video = ad.elementUnderTheVideo();
     cy.scrollTo('bottom');
-    const closeButton = ad.collapse_video_close_button();
+    const closeButton = ad.collapseVideoCloseButton();
     cy.wait(20000);
     closeButton.click();
     closeButton.should('not.be.visible');
@@ -24,18 +24,18 @@ context('Mobile resolution', () => {
       'https://damndelicious.net/2022/08/05/weeknight-lemon-chicken-breasts/',
     );
     const ad = new Ads();
-    ad.sticky_video().then(($element) => {
+    ad.stickyVideo().then(($element) => {
       cy.wrap($element).scrollIntoView();
     });
     cy.wait(0);
     const video_src_before_next_button = ad
-      .video_change_src()
+      .videoChangeSrc()
       .invoke('attr', 'src');
-    const next_button = ad.video_next_button();
+    const next_button = ad.videoNextButton();
     next_button.click();
     cy.wait(10000);
     const video_src_after_next_button = ad
-      .video_change_src()
+      .videoChangeSrc()
       .invoke('attr', 'src');
 
     if (video_src_before_next_button === video_src_after_next_button) {
@@ -49,16 +49,16 @@ context('Mobile resolution', () => {
   it('user verify able to click on the stay button', function () {
     cy.visit('https://www.wellplated.com/carnitas/');
     const ad = new Ads();
-    ad.sticky_video().then(($element) => {
+    ad.stickyVideo().then(($element) => {
       cy.wrap($element).scrollIntoView();
     });
     const video_src_before_next_button = ad
-      .video_change_src()
+      .videoChangeSrc()
       .invoke('attr', 'src');
-    const stay_button = ad.video_stay_button();
+    const stay_button = ad.videoStayButton();
     stay_button.click();
     const video_src_after_next_button = ad
-      .video_change_src()
+      .videoChangeSrc()
       .invoke('attr', 'src');
     cy.log('hello world');
     cy.log(JSON.stringify(video_src_before_next_button));
@@ -75,9 +75,9 @@ context('Mobile resolution', () => {
   it('user verify video location', function () {
     cy.visit('https://www.wellplated.com/carnitas/');
     const ad = new Ads();
-    const under_the_video = ad.element_under_the_video();
+    const under_the_video = ad.elementUnderTheVideo();
     cy.scrollTo('bottom');
-    const closeButton = ad.collapse_video_close_button();
+    const closeButton = ad.collapseVideoCloseButton();
 
     cy.get(
       "div[class='adthrive-player-position adthrive-player-without-wrapper-text adthrive-collapse-mobile adthrive-collapse-medium adthrive-collapse-bottom-right']",
