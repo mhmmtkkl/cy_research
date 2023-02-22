@@ -1,0 +1,46 @@
+
+//  General Video Settings/Features
+//      All devices, all positions, all players (sticky)
+	//      JW Buttons
+	//          Play/Pause
+	//          Mute/Unmute
+	//          Video quality
+	//          Full screen/collapse full screen
+	//      When collapsed, close button exists after 5 seconds.
+	//      Close button default style and contrast is good on background/X.
+	//      Wrapper enabled
+	//          Wrapper exists.
+	//          Title text contrast is clear.
+	//          Title link redirects to related URL (playlist only).
+	//      Wrapper disabled
+	//          No wrapper elements exist
+	//          Advance Playlist
+	//          Advance feature buttons appear after 30 seconds have elapsed
+	//          “Next” button moves to next video after 5 seconds.
+	//          “Next button moves to next video after being clicked.
+	//          “Stay” button remains on the video.
+	//      Auto-plays once the video player is 50% in view.
+	//  Positions (verify all positions are loading in the correct spot)
+	//      Desktop
+	//          Bottom Right
+	//      Mobile
+	//          Top-Center
+	//              Contrast between close button and background is clear.
+	//              Background exists.
+	//          If Wrapper is Enabled:
+	//              Verify title text and top-center background contrast is clear.
+	//          Bottom Right
+	//          Bottom Left
+	//          Top Right
+	//          Top Left
+
+	// Stationary
+	//      Not too much to be done here, just make sure it loads and plays when clicked.
+
+//     Video player gam call goes out with response. detect if vast errors are happening instead. this can fail.
+//      m3u8 of the video plays/serves
+
+//      check if closing the player actually works
+
+// If possible, it’d be great to verify like “when a playlist player is injected, a playlistID is requested from JW”, some kind of matching on type of player on the page and expected request+GAM targeting
+

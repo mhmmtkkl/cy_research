@@ -1,6 +1,6 @@
 import Ads from '../../pages/ads';
 
-context('iphone-5 resolution', () => {
+context('Mobile resolution', () => {
   beforeEach(() => {
     cy.viewport(375, 667); // Set viewport to 550px x 750px
     cy.viewport('iphone-se2'); // Set viewport to 375px x 667px
@@ -13,7 +13,7 @@ context('iphone-5 resolution', () => {
     const ad = new Ads();
     const under_the_video = ad.element_under_the_video();
     cy.scrollTo('bottom');
-    const closeButton = ad.collapseVideoCloseButton();
+    const closeButton = ad.collapse_video_close_button();
     cy.wait(20000);
     closeButton.click();
     closeButton.should('not.be.visible');
@@ -24,7 +24,7 @@ context('iphone-5 resolution', () => {
       'https://damndelicious.net/2022/08/05/weeknight-lemon-chicken-breasts/',
     );
     const ad = new Ads();
-    ad.stickyVideo().then(($element) => {
+    ad.sticky_video().then(($element) => {
       cy.wrap($element).scrollIntoView();
     });
     cy.wait(0);
@@ -49,7 +49,7 @@ context('iphone-5 resolution', () => {
   it('user verify able to click on the stay button', function () {
     cy.visit('https://www.wellplated.com/carnitas/');
     const ad = new Ads();
-    ad.stickyVideo().then(($element) => {
+    ad.sticky_video().then(($element) => {
       cy.wrap($element).scrollIntoView();
     });
     const video_src_before_next_button = ad
@@ -77,18 +77,10 @@ context('iphone-5 resolution', () => {
     const ad = new Ads();
     const under_the_video = ad.element_under_the_video();
     cy.scrollTo('bottom');
-    const closeButton = ad.collapseVideoCloseButton();
+    const closeButton = ad.collapse_video_close_button();
 
     cy.get(
       "div[class='adthrive-player-position adthrive-player-without-wrapper-text adthrive-collapse-mobile adthrive-collapse-medium adthrive-collapse-bottom-right']",
     ).should('have.css', 'right', '10px');
   });
 });
-
-// function getOffset(el) {
-//   const rect = el.getBoundingClientRect();
-//   return {
-//     left: rect.left + window.scrollX,
-//     top: rect.top + window.scrollY
-//   };
-// }

@@ -1,20 +1,24 @@
 class Ads {
-  allAdds() {
+  all_content_adds() {
     let totalCount;
-    cy.get("div[class*='adthrive-ad adthrive-content']").then((value) => {
-      totalCount = Cypress.$(value).length;
-      cy.log(totalCount);
-      cy.log(totalCount);
-    });
-    // Can we check the Iframe in the slot it would be more reliable test.
-    return cy.get("div[class*='adthrive-ad adthrive-content']");
+
+
+    const all_ads = cy.get("div[class*='adthrive-ad adthrive-content'] iframe")
+    cy.wrap(all_ads).should('be.gte', 1);
+    return all_ads;
   }
 
-  footerElement() {
+  element_attribute(){ 
+    const all_ads = cy.get("div[id='AdThrive_Content_1_desktop'] iframe")
+  }
+  https://tpc.googlesyndication.com/safeframe/1-0-40/js/ext.js
+
+  
+  footer_element() {
     return cy.get("div[id='AdThrive_Footer_1_desktop']");
   }
-
-  sideBarElement() {
+  
+  side_bar_element() {
     return cy.get("//div[contains(@class,'adthrive-ad adthrive-sidebar')]");
   }
 
@@ -24,14 +28,16 @@ class Ads {
     );
     // return cy.get("div[class='GoogleActiveViewClass GoogleActiveViewElement']")
   }
+
   video() {
     return cy.get("div[id='adthrive-contextual-container']");
   }
-  stickyVideo() {
+
+  sticky_video() {
     return cy.get("div[class='adthrive']");
   }
 
-  collapseVideoCloseButton() {
+  collapse_video_close_button() {
     return cy.get("div[id='adthrive-collapse-close']");
   }
 
