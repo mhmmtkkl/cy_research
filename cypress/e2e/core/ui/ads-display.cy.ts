@@ -1,22 +1,20 @@
 import Ads from '../../pages/ads';
+import iframes from '../../utilities/IFrames';
 
-context('720p resolution', () => {
+
+context('Core testing ads display', () => {
   beforeEach(() => {
-    // run these tests as if in a desktop
-    // browser with a 720p monitor
     cy.viewport(1280, 720);
-    Cypress.config('defaultCommandTimeout', 30000);
+    Cypress.config('defaultCommandTimeout', 50000);
   });
 
-  it('user verify ads are displaying', function () {
+
+  it('user verify all the content ads are displaying', function () {
     cy.visit('https://www.wellplated.com/carnitas/');
     const ad = new Ads();
-    const allads = ad.allAdds();
-    // length is changing for each page.
-    // Instead of using hard code ad count we need to get the current page ad count from API.
-    // Instead of checking the excact number of length we can check the some range of the ads between 3 - 10 ads like this.
-    // Make sure one ad is filling.
-    allads.should('be.visible').and('have.length', 14);
+    const allads = ad.allContentAdds();
+    allads.should('be.visible');
+
   });
 
   it('user verify footer is displaying', function () {
@@ -25,4 +23,24 @@ context('720p resolution', () => {
     const allads = ad.footerElement();
     allads.should('be.visible').and('have.length', 1);
   });
+
+  it('Verify ads are refreshing after 30 seconds', () => {
+    cy.visit('https://www.wellplated.com/carnitas/')
+    const frame = new iframes();
+    const ad = new Ads();
+    cy.scrollTo('bottom');
+    
+    ad.popUpCloseButton().click();
+    
+
+    ad.footerElement().invoke('attr', 'data-google-query-id').then((attr1)=>{
+      
+      cy.wait(30000)
+      ad.footerElement().invoke('attr', 'data-google-query-id').then((attr2)=>{
+        
+        expect(attr1).to.not.equal(attr2)
+      })
+    });
+
+  })
 });

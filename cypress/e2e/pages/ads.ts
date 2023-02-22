@@ -1,32 +1,36 @@
 class Ads {
-  allAdds() {
+  allContentAdds() {
     let totalCount;
-    cy.get("div[class*='adthrive-ad adthrive-content']").then((value) => {
-      totalCount = Cypress.$(value).length;
-      cy.log(totalCount);
-      cy.log(totalCount);
-    });
-    // Can we check the Iframe in the slot it would be more reliable test.
+
+    const allAds = cy.get("div[class*='adthrive-ad adthrive-content']").find('iframe').its('length').should('be.gte', 1)
+
     return cy.get("div[class*='adthrive-ad adthrive-content']");
   }
 
+  elementAttribute(){ 
+    const allAds = cy.get("div[id='AdThrive_Content_1_desktop'] iframe")
+  }
+  // https://tpc.googlesyndication.com/safeframe/1-0-40/js/ext.js
+
+  
   footerElement() {
     return cy.get("div[id='AdThrive_Footer_1_desktop']");
   }
-
+  
   sideBarElement() {
     return cy.get("//div[contains(@class,'adthrive-ad adthrive-sidebar')]");
   }
 
-  element_under_the_video() {
+  elementUnderTheVideo() {
     return cy.xpath(
       "(//div[contains(@id,'cls-video-container')]/following-sibling::p)[2]",
     );
-    // return cy.get("div[class='GoogleActiveViewClass GoogleActiveViewElement']")
   }
+
   video() {
     return cy.get("div[id='adthrive-contextual-container']");
   }
+
   stickyVideo() {
     return cy.get("div[class='adthrive']");
   }
@@ -35,20 +39,30 @@ class Ads {
     return cy.get("div[id='adthrive-collapse-close']");
   }
 
-  video_next_button() {
+  videoNextButton() {
     return cy.get("div[id='next-video']");
   }
 
-  video_stay_button() {
+  videoStayButton() {
     return cy.get("div[id='stay-video']");
   }
 
-  video_change_src() {
+  videoChangeSrc() {
     return cy.get("div[class='jw-media jw-reset']>video");
   }
 
   newsletterCloseBtn() {
     return cy.get("button[class^='CloseButton__ButtonElement']>svg");
+  }
+
+  popUpCloseButton() {
+    return cy.get("button[title='Close']");
+  }
+
+  mobileVideoCollapse(){
+    return cy.get(
+      "div[class='adthrive-player-position adthrive-player-without-wrapper-text adthrive-collapse-mobile adthrive-collapse-medium adthrive-collapse-bottom-right']",
+    )
   }
 }
 
