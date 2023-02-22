@@ -2,13 +2,13 @@ class Ads {
   allContentAdds() {
     let totalCount;
 
-    const all_ads = cy.get("div[class*='adthrive-ad adthrive-content']").find('iframe').its('length').should('be.gte', 1)
+    const allAds = cy.get("div[class*='adthrive-ad adthrive-content']").find('iframe').its('length').should('be.gte', 1)
 
     return cy.get("div[class*='adthrive-ad adthrive-content']");
   }
 
   elementAttribute(){ 
-    const all_ads = cy.get("div[id='AdThrive_Content_1_desktop'] iframe")
+    const allAds = cy.get("div[id='AdThrive_Content_1_desktop'] iframe")
   }
   // https://tpc.googlesyndication.com/safeframe/1-0-40/js/ext.js
 
@@ -57,6 +57,12 @@ class Ads {
 
   popUpCloseButton() {
     return cy.get("button[title='Close']");
+  }
+
+  mobileVideoCollapse(){
+    return cy.get(
+      "div[class='adthrive-player-position adthrive-player-without-wrapper-text adthrive-collapse-mobile adthrive-collapse-medium adthrive-collapse-bottom-right']",
+    )
   }
 }
 

@@ -11,7 +11,6 @@ context('Mobile resolution', () => {
       'https://damndelicious.net/2022/08/05/weeknight-lemon-chicken-breasts/',
     );
     const ad = new Ads();
-    const under_the_video = ad.elementUnderTheVideo();
     cy.scrollTo('bottom');
     const closeButton = ad.collapseVideoCloseButton();
     cy.wait(20000);
@@ -28,17 +27,17 @@ context('Mobile resolution', () => {
       cy.wrap($element).scrollIntoView();
     });
     cy.wait(0);
-    const video_src_before_next_button = ad
+    const videoSrcBeforeNextButton = ad
       .videoChangeSrc()
       .invoke('attr', 'src');
-    const next_button = ad.videoNextButton();
-    next_button.click();
+    const nextButton = ad.videoNextButton();
+    nextButton.click();
     cy.wait(10000);
-    const video_src_after_next_button = ad
+    const videoSrcAfterNextButton = ad
       .videoChangeSrc()
       .invoke('attr', 'src');
 
-    if (video_src_before_next_button === video_src_after_next_button) {
+    if (videoSrcBeforeNextButton === videoSrcAfterNextButton) {
       cy.log('NOOOOOT  working as expected');
       assert.fail;
     } else {
@@ -52,35 +51,31 @@ context('Mobile resolution', () => {
     ad.stickyVideo().then(($element) => {
       cy.wrap($element).scrollIntoView();
     });
-    const video_src_before_next_button = ad
+    const videoSrcBeforeNextButton = ad
       .videoChangeSrc()
       .invoke('attr', 'src');
-    const stay_button = ad.videoStayButton();
-    stay_button.click();
-    const video_src_after_next_button = ad
+    const stayButton = ad.videoStayButton();
+    stayButton.click();
+    const videoSrcAfterNextButton = ad
       .videoChangeSrc()
       .invoke('attr', 'src');
     cy.log('hello world');
-    cy.log(JSON.stringify(video_src_before_next_button));
-    cy.log(JSON.stringify(video_src_after_next_button));
-    if (video_src_before_next_button === video_src_after_next_button) {
+    cy.log(JSON.stringify(videoSrcBeforeNextButton));
+    cy.log(JSON.stringify(videoSrcAfterNextButton));
+    if (videoSrcBeforeNextButton === videoSrcAfterNextButton) {
       cy.log('NOOOOOT  working as expected');
       assert.fail;
     } else {
       cy.log('working as expected');
     }
-    // expect(video_src_before_next_button).equal(video_src_after_next_button)
   });
 
   it('user verify video location', function () {
     cy.visit('https://www.wellplated.com/carnitas/');
     const ad = new Ads();
-    const under_the_video = ad.elementUnderTheVideo();
     cy.scrollTo('bottom');
     const closeButton = ad.collapseVideoCloseButton();
 
-    cy.get(
-      "div[class='adthrive-player-position adthrive-player-without-wrapper-text adthrive-collapse-mobile adthrive-collapse-medium adthrive-collapse-bottom-right']",
-    ).should('have.css', 'right', '10px');
+    ad.mobileVideoCollapse().should('have.css', 'right', '10px');
   });
 });
