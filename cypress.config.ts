@@ -10,7 +10,6 @@ module.exports = defineConfig({
       return config;
     },
     hideXHRInCommandLog: true,
-    projectId: '82a1no',
     "retries": {
       // Configure retry attempts for `cypress run`
       // Default is 0
