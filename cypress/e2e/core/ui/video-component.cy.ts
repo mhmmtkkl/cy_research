@@ -2,14 +2,11 @@ import { VideoPlayer } from 'cypress/e2e/pages/VideoPlayer';
 import Ads from '../../pages/ads';
 
 context('video player', () => {
-  const url = 'https://www.wellplated.com/carnitas';
-  const debug = '/?pbjs_debug=true';
   const videoPlayer = new VideoPlayer();
   const ads = new Ads();
 
   beforeEach(() => {
-    cy.visit(`${url}${debug}`);
-    Cypress.config('defaultCommandTimeout', 60000);
+    cy.visit(`${Cypress.env('desktopUrl')}?${Cypress.env('pluginHash')}`);
   });
 
   it('user can close collapsed video', () => {

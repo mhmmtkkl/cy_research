@@ -5,17 +5,13 @@ import ConsoleData from '../../utilities/console-data';
 // consoleTypes: ['error', 'warn', 'info'],
 // debug: false,
 // };
-const aspicyURL =
-    'https://damndelicious.net/2019/04/01/honey-mustard-chicken-salad/';
-  const debug = '?pbjs_debug=true';
-
 context('Desktop console test cases', () => {
-  beforeEach(() => {
-    Cypress.config('defaultCommandTimeout', 30000);
-  });
-
   it.only('verify there is no any unexpected errors/warnings', () => {
-    cy.visit(`${aspicyURL}${debug}`);
+    cy.visit(
+      `${Cypress.env('desktopUrl')}?${Cypress.env('debugMode')}&${Cypress.env(
+        'pluginHash',
+      )}`,
+    );
     cy.window()
       .its('console')
       .then((console) => {

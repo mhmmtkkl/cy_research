@@ -7,9 +7,7 @@ context('Mobile resolution', () => {
   });
 
   it.only('user verify video is collapsing', function () {
-    cy.visit(
-      'https://damndelicious.net/2022/08/05/weeknight-lemon-chicken-breasts/',
-    );
+    cy.visit(`${Cypress.env('mobileUrl')}?${Cypress.env('pluginHash')}`);
     const ad = new Ads();
     cy.scrollTo('bottom');
     const closeButton = ad.collapseVideoCloseButton();
@@ -19,23 +17,17 @@ context('Mobile resolution', () => {
   });
 
   it('user verify able to click on the next button', function () {
-    cy.visit(
-      'https://damndelicious.net/2022/08/05/weeknight-lemon-chicken-breasts/',
-    );
+    cy.visit(`${Cypress.env('mobileUrl')}?${Cypress.env('pluginHash')}`);
     const ad = new Ads();
     ad.stickyVideo().then(($element) => {
       cy.wrap($element).scrollIntoView();
     });
     cy.wait(0);
-    const videoSrcBeforeNextButton = ad
-      .videoChangeSrc()
-      .invoke('attr', 'src');
+    const videoSrcBeforeNextButton = ad.videoChangeSrc().invoke('attr', 'src');
     const nextButton = ad.videoNextButton();
     nextButton.click();
     cy.wait(10000);
-    const videoSrcAfterNextButton = ad
-      .videoChangeSrc()
-      .invoke('attr', 'src');
+    const videoSrcAfterNextButton = ad.videoChangeSrc().invoke('attr', 'src');
 
     if (videoSrcBeforeNextButton === videoSrcAfterNextButton) {
       cy.log('NOOOOOT  working as expected');
@@ -46,19 +38,15 @@ context('Mobile resolution', () => {
   });
 
   it('user verify able to click on the stay button', function () {
-    cy.visit('https://www.wellplated.com/carnitas/');
+    cy.visit(`${Cypress.env('desktopUrl')}?${Cypress.env('pluginHash')}`);
     const ad = new Ads();
     ad.stickyVideo().then(($element) => {
       cy.wrap($element).scrollIntoView();
     });
-    const videoSrcBeforeNextButton = ad
-      .videoChangeSrc()
-      .invoke('attr', 'src');
+    const videoSrcBeforeNextButton = ad.videoChangeSrc().invoke('attr', 'src');
     const stayButton = ad.videoStayButton();
     stayButton.click();
-    const videoSrcAfterNextButton = ad
-      .videoChangeSrc()
-      .invoke('attr', 'src');
+    const videoSrcAfterNextButton = ad.videoChangeSrc().invoke('attr', 'src');
     cy.log('hello world');
     cy.log(JSON.stringify(videoSrcBeforeNextButton));
     cy.log(JSON.stringify(videoSrcAfterNextButton));
@@ -71,7 +59,7 @@ context('Mobile resolution', () => {
   });
 
   it('user verify video location', function () {
-    cy.visit('https://www.wellplated.com/carnitas/');
+    cy.visit(`${Cypress.env('desktopUrl')}?${Cypress.env('pluginHash')}`);
     const ad = new Ads();
     cy.scrollTo('bottom');
     const closeButton = ad.collapseVideoCloseButton();
