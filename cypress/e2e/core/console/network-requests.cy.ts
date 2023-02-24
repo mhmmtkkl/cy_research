@@ -1,14 +1,10 @@
 context('network request', () => {
-  const aspicyURL =
-    'https://damndelicious.net/2019/04/01/honey-mustard-chicken-salad/';
-  const debug = '?pbjs_debug=true';
-
   it('request for ads.min.js status is 200 OK', () => {
     cy.intercept({
       method: 'GET',
       pathname: '/sites/**/ads.min.js',
     }).as('ads');
-    cy.visit(`${aspicyURL}${debug}`);
+    cy.visit(`${Cypress.env('desktopUrl')}?${Cypress.env('pluginHash')}`);
     cy.wait('@ads').then(({ response }) => {
       expect(response.statusCode).to.be.oneOf([200, 304]);
     });
@@ -19,7 +15,7 @@ context('network request', () => {
       method: 'GET',
       pathname: '**/prebid/**/prebid.min.js',
     }).as('prebid');
-    cy.visit(`${aspicyURL}${debug}`);
+    cy.visit(`${Cypress.env('desktopUrl')}?${Cypress.env('pluginHash')}`);
     cy.wait('@prebid').then(({ response }) => {
       expect(response.statusCode).to.be.oneOf([200, 304]);
     });
