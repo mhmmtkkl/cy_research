@@ -27,6 +27,6 @@ module.exports = defineConfig({
     mobileUrl:
       'https://damndelicious.net/2022/08/05/weeknight-lemon-chicken-breasts/',
     debugMode: 'pbjs_debug=true',
-    pluginHash: `plugin_remote_cls=${process.env.PLUGIN_HASH || 'prod'}`,
+    pluginHash: `plugin_remote_cls=${process.env.PLUGIN_HASH || ''}`,
   },
 });
