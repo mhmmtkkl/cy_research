@@ -1,6 +1,7 @@
 // note that this section is to check if we are able to access and test with the adthrive object
 // current tests aren't core and wip
 context('console object logs', () => {
+  let browserName = Cypress.browser.name
   beforeEach(() => {
     cy.visit(
       `${Cypress.env('desktopUrl')}?${Cypress.env('debugMode')}&${Cypress.env(
@@ -9,7 +10,7 @@ context('console object logs', () => {
     );
   });
 
-  it('adDensityEnabled is true', () => {
+  it(`adDensityEnabled is true in ${browserName} browser`, () => {
     cy.window()
       .its('adthrive')
       .then((adthrive) => {

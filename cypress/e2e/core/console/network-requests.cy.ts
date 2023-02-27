@@ -1,5 +1,6 @@
 context('network request', () => {
-  it('request for ads.min.js status is 200 OK', () => {
+  let browserName = Cypress.browser.name
+  it(`request for ads.min.js status is 200 OK in ${browserName} browser`, () => {
     cy.intercept({
       method: 'GET',
       pathname: '/sites/**/ads.min.js',
@@ -10,7 +11,7 @@ context('network request', () => {
     });
   });
 
-  it('request for prebid.min.js status is 200 OK', () => {
+  it(`request for prebid.min.js status is 200 OK in ${browserName} browser`, () => {
     cy.intercept({
       method: 'GET',
       pathname: '**/prebid/**/prebid.min.js',

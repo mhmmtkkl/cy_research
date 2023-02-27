@@ -1,12 +1,14 @@
 import Ads from '../../pages/ads';
 
 context('Mobile resolution', () => {
+  let browserName = Cypress.browser.name
+
   beforeEach(() => {
     cy.viewport(375, 667); // Set viewport to 550px x 750px
     cy.viewport('iphone-se2'); // Set viewport to 375px x 667px
   });
 
-  it.only('user verify video is collapsing', function () {
+  it.only(`user verify video is collapsing in ${browserName} browser`, function () {
     cy.visit(`${Cypress.env('mobileUrl')}?${Cypress.env('pluginHash')}`);
     const ad = new Ads();
     cy.scrollTo('bottom');
@@ -16,7 +18,7 @@ context('Mobile resolution', () => {
     closeButton.should('not.be.visible');
   });
 
-  it('user verify able to click on the next button', function () {
+  it(`user verify able to click on the next button in ${browserName} browser`, function () {
     cy.visit(`${Cypress.env('mobileUrl')}?${Cypress.env('pluginHash')}`);
     const ad = new Ads();
     ad.stickyVideo().then(($element) => {
@@ -37,7 +39,7 @@ context('Mobile resolution', () => {
     }
   });
 
-  it('user verify able to click on the stay button', function () {
+  it(`user verify able to click on the stay button in ${browserName} browser`, function () {
     cy.visit(`${Cypress.env('desktopUrl')}?${Cypress.env('pluginHash')}`);
     const ad = new Ads();
     ad.stickyVideo().then(($element) => {
@@ -58,7 +60,7 @@ context('Mobile resolution', () => {
     }
   });
 
-  it('user verify video location', function () {
+  it(`user verify video location in ${browserName} browser`, function () {
     cy.visit(`${Cypress.env('desktopUrl')}?${Cypress.env('pluginHash')}`);
     const ad = new Ads();
     cy.scrollTo('bottom');

@@ -4,12 +4,12 @@ import Ads from '../../pages/ads';
 context('video player', () => {
   const videoPlayer = new VideoPlayer();
   const ads = new Ads();
-
+  let browserName = Cypress.browser.name
   beforeEach(() => {
     cy.visit(`${Cypress.env('desktopUrl')}?${Cypress.env('pluginHash')}`);
   });
 
-  it('user can close collapsed video', () => {
+  it(`user can close collapsed video in ${browserName} browser`, () => {
     videoPlayer.video().scrollIntoView({ easing: 'linear' });
     videoPlayer.video().should('exist');
     cy.scrollTo('bottom', { easing: 'linear' });
@@ -20,7 +20,7 @@ context('video player', () => {
     });
   });
 
-  it('collpased video is in correct bottom right position', () => {
+  it(`Collpased video is in correct bottom right position in ${browserName} browser`, () => {
     videoPlayer.video().scrollIntoView({ easing: 'linear' });
     expect(videoPlayer.video()).to.exist;
     cy.scrollTo('bottom', { easing: 'linear' });
@@ -43,7 +43,7 @@ context('video player', () => {
     });
   });
 
-  it('"Next" button changes video', () => {
+  it(`"Next" button changes video in ${browserName} browser`, () => {
     videoPlayer.video().scrollIntoView();
     videoPlayer.video().should((res) => {
       expect(res.attr('src')).to.not.be.empty;
@@ -62,7 +62,7 @@ context('video player', () => {
       });
   });
 
-  it('"Stay" button keeps same video', () => {
+  it(`"Stay" button keeps same video in ${browserName} browser`, () => {
     videoPlayer.video().scrollIntoView();
     videoPlayer.video().should((res) => {
       expect(res.attr('src')).to.not.be.empty;

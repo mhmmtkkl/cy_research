@@ -7,7 +7,7 @@
     "test": "cypress run",
     "prettier": "prettier --write .",
     "cy:run_spec": "npx cypress run --spec 'cypress/e2e/core'",
-    "cy:run_browsers": "npm run cy:run_spec -- --browser firefox & npm run cy:run_spec -- --browser chrome & npm run cy:run_spec -- --browser electron --env allure=true",
+    "cy:run_browsers": "npm run cy:run_spec -- --browser chrome --env allure=true &npm run cy:run_spec -- --browser firefox --env allure=true & npm run cy:run_spec -- --browser electron --env allure=true",
     "allure:clear": "rm -r allure-results/ allure-report cypress/screenshots || true",
     "allure:report": "allure generate allure-results --clean -o allure-report",
     "allure:history": "mv -f allure-report/history allure-results/history && rm -r allure-report || true"
