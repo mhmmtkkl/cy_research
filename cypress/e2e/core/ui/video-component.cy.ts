@@ -4,7 +4,7 @@ import Ads from '../../pages/ads';
 context('video player', () => {
   const videoPlayer = new VideoPlayer();
   const ads = new Ads();
-  var browserName = Cypress.browser.name
+  let browserName = Cypress.browser.name
   beforeEach(() => {
     cy.visit(`${Cypress.env('desktopUrl')}?${Cypress.env('pluginHash')}`);
   });

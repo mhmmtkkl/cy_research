@@ -6,7 +6,7 @@ import ConsoleData from '../../utilities/console-data';
 // debug: false,
 // };
 context('Desktop console test cases', () => {
-  var browserName = Cypress.browser.name
+  let browserName = Cypress.browser.name
   it.only(`verify there is no any unexpected errors/warnings in ${browserName} browser`, () => {
     cy.visit(
       `${Cypress.env('desktopUrl')}?${Cypress.env('debugMode')}&${Cypress.env(

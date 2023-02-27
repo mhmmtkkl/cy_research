@@ -1,7 +1,7 @@
 import Ads from '../../pages/ads';
 
 context('Mobile resolution', () => {
-  var browserName = Cypress.browser.name
+  let browserName = Cypress.browser.name
 
   beforeEach(() => {
     cy.viewport(375, 667); // Set viewport to 550px x 750px

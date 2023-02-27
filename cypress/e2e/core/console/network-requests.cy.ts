@@ -1,5 +1,5 @@
 context('network request', () => {
-  var browserName = Cypress.browser.name
+  let browserName = Cypress.browser.name
   it(`request for ads.min.js status is 200 OK in ${browserName} browser`, () => {
     cy.intercept({
       method: 'GET',

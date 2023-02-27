@@ -2,7 +2,7 @@ import Ads from '../../pages/ads';
 import iframes from '../../utilities/IFrames';
 
 context('Core testing ads display', () => {
-  var browserName = Cypress.browser.name
+  let browserName = Cypress.browser.name
   beforeEach(() => {
     cy.visit(`${Cypress.env('desktopUrl')}?${Cypress.env('pluginHash')}`);
   });
